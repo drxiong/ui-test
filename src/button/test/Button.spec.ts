@@ -11,7 +11,7 @@ describe("Button", () => {
       },
     });
 
-    expect(wrapper.text()).toBe("Button1");
+    expect(wrapper.text()).toBe("Button2");
   });
 });
 

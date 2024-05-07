@@ -11,8 +11,9 @@
     "docs:build": "vitepress build docs",
     "docs:serve": "vitepress serve docs",
     "lint": "eslint --fix --ext .ts,.vue,.tsx,.cjs src",
+    "lint:lint-staged": "lint-staged",
     "format": "prettier --write \"src/**/*.ts\" \"src/**/*.vue\"",
-    "prepare": "husky install",
+    "prepare": "husky",
     "test:run": "vitest run"
   },
   "keywords": [],
@@ -35,6 +36,7 @@
     "happy-dom": "6.0.4",
     "husky": "^9.0.11",
     "jsdom": "^24.0.0",
+    "lint-staged": "^15.2.2",
     "prettier": "^3.2.5",
     "unocss": "0.45.6",
     "vite": "3.0.7",
@@ -48,5 +50,29 @@
     "axios": "^1.6.8",
     "typescript": "^5.4.5",
     "vue": "3.2.37"
+  },
+  "lint-staged": {
+    "*.{js,jsx,ts,tsx}": [
+      "eslint --fix",
+      "prettier --write"
+    ],
+    "{!(package)*.json,*.code-snippets,.!(browserslist)*rc}": [
+      "prettier --write--parser json"
+    ],
+    "package.json": [
+      "prettier --write"
+    ],
+    "*.vue": [
+      "eslint --fix",
+      "prettier --write",
+      "stylelint --fix"
+    ],
+    "*.{scss,less,styl,html}": [
+      "stylelint --fix",
+      "prettier --write"
+    ],
+    "*.md": [
+      "prettier --write"
+    ]
   }
 }
