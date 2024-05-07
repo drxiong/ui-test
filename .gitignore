@@ -1,0 +1,30 @@
+.DS_Store
+node_modules/
+/dist/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+/test/unit/coverage/
+/test/e2e/reports/
+selenium-debug.log
+.prettierrc.json
+/storybook-static
+/bossfrontend
+
+# test
+__image_snapshots__
+__snapshots__
+.xt-testing.config.js
+
+# Editor directories and files
+.idea
+.vscode
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.iml
+# vscode history
+.history
+
+.VSCodeCounter
