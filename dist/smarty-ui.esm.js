@@ -10,7 +10,7 @@ const props = {
     default: "search"
   }
 };
-const XButton = defineComponent({
+const Button = defineComponent({
   name: "XButton",
   props,
   setup(props2, {
@@ -56,7 +56,7 @@ const JSXButton = defineComponent({
 });
 const entry = {
   install(app) {
-    app.component(XButton.name, XButton);
+    app.component(Button.name, Button);
     app.component(SFCButton.name, SFCButton);
     app.component(JSXButton.name, JSXButton);
   }
@@ -64,6 +64,7 @@ const entry = {
 export {
   JSXButton,
   SFCButton,
-  XButton,
+  Button as XButton,
   entry as default
 };
+//# sourceMappingURL=smarty-ui.esm.js.map

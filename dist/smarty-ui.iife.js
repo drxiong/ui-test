@@ -14,7 +14,7 @@ var SmartyUI = function(exports, vue) {
       default: "search"
     }
   };
-  const XButton = vue.defineComponent({
+  const Button = vue.defineComponent({
     name: "XButton",
     props,
     setup(props2, {
@@ -60,15 +60,16 @@ var SmartyUI = function(exports, vue) {
   });
   const entry = {
     install(app) {
-      app.component(XButton.name, XButton);
+      app.component(Button.name, Button);
       app.component(SFCButton.name, SFCButton);
       app.component(JSXButton.name, JSXButton);
     }
   };
   exports.JSXButton = JSXButton;
   exports.SFCButton = SFCButton;
-  exports.XButton = XButton;
+  exports.XButton = Button;
   exports.default = entry;
   Object.defineProperties(exports, { __esModule: { value: true }, [Symbol.toStringTag]: { value: "Module" } });
   return exports;
 }({}, Vue);
+//# sourceMappingURL=smarty-ui.iife.js.map

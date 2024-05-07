@@ -16,7 +16,7 @@ document.head.appendChild(__vite_style__);
       default: "search"
     }
   };
-  const XButton = vue.defineComponent({
+  const Button = vue.defineComponent({
     name: "XButton",
     props,
     setup(props2, {
@@ -62,14 +62,15 @@ document.head.appendChild(__vite_style__);
   });
   const entry = {
     install(app) {
-      app.component(XButton.name, XButton);
+      app.component(Button.name, Button);
       app.component(SFCButton.name, SFCButton);
       app.component(JSXButton.name, JSXButton);
     }
   };
   exports2.JSXButton = JSXButton;
   exports2.SFCButton = SFCButton;
-  exports2.XButton = XButton;
+  exports2.XButton = Button;
   exports2.default = entry;
   Object.defineProperties(exports2, { __esModule: { value: true }, [Symbol.toStringTag]: { value: "Module" } });
 });
+//# sourceMappingURL=smarty-ui.umd.js.map

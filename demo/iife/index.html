@@ -1,36 +1,15 @@
-<h1>Demo esm</h1>
+<h1>Demo IFFE</h1>
 <div id="app"></div>
-<!-- <link rel="stylesheet" href="../../dist/assets/style.css"> -->
+<link rel="stylesheet" href="../../dist/assets/entry.3cce5fd4.css">
+<script src="../../node_modules/vue/dist/vue.global.js"></script>
+<script src="../../dist/smarty-ui.iife.js"></script>
+<!-- <script type="module">
+   const { createApp } = Vue
+    
+</script> -->
 <script type="module">
     import { createApp } from "vue/dist/vue.esm-bundler.js"
-    import SmartyUI from "../../dist/smarty-ui.esm.js"
-    import '../../dist/assets/entry.3cce5fd4.css'
     
-    // //加载全部组件
-    // // createApp({
-    // //     template: `
-    // //         <XButton/>
-    // //         <JSXButton/>
-    // //         <SFCButton/>
-    // //     `
-    // // }).use(SmartyUI).mount('#app')
-
-    // //加载单独组件
-    // createApp({
-    //     template: `
-    //         <XButton/>
-    //         <JSXButton/>
-    //         <SFCButton/>
-    //     `
-    // })
-    // .component(SFCButton.name, SFCButton)
-    // .component(JSXButton.name, JSXButton)
-    // .component(XButton.name, XButton)
-    // .mount('#app')
-
-    // console.log('111')
-    // const { createApp } = Vue
-    // console.log('vue', Vue)
     console.log('SmartyUI', SmartyUI)
     createApp({
         template: `
@@ -68,5 +47,5 @@
             <XButton color="yellow" round plain icon="message"></XButton>
             <XButton color="red" round plain icon="delete"></XButton>
         </div>
-    `}).use(SmartyUI).mount('#app')
+    `}).use(SmartyUI.default).mount('#app')
 </script>
