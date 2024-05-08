@@ -1,8 +1,9 @@
 {
-  "name": "ui-vite",
+  "name": "xy-ui-vite",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "./dist/smarty-ui.esm.umd.js",
+  "module": "./dist/smarty-ui.esm.esm.js",
   "scripts": {
     "test": "vitest",
     "dev": "vite",
@@ -49,7 +50,8 @@
     "@commitlint/config-conventional": "17.0.2",
     "axios": "^1.6.8",
     "typescript": "^5.4.5",
-    "vue": "3.2.37"
+    "vue": "3.2.37",
+    "xy-ui-vite": "^1.0.0"
   },
   "lint-staged": {
     "*.{js,jsx,ts,tsx}": [
