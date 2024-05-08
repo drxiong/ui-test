@@ -2,8 +2,8 @@
   "name": "xy-ui-vite",
   "version": "1.0.1",
   "description": "",
-  "main": "./dist/smarty-ui.esm.umd.js",
-  "module": "./dist/smarty-ui.esm.esm.js",
+  "main": "./dist/smarty-ui.umd.js",
+  "module": "./dist/smarty-ui.esm.js",
   "scripts": {
     "test": "vitest",
     "dev": "vite",
@@ -51,7 +51,7 @@
     "axios": "^1.6.8",
     "typescript": "^5.4.5",
     "vue": "3.2.37",
-    "xy-ui-vite": "^1.0.0"
+    "xy-ui-vite": "^1.0.1"
   },
   "lint-staged": {
     "*.{js,jsx,ts,tsx}": [
@@ -63,5 +63,12 @@
     "package.json": [
       "eslint --fix"
     ]
+  },
+  "exports": {
+    ".": {
+      "import": "./dist/smarty-ui.esm.js",
+      "require": "./dist/smarty-ui.umd.js"
+    },
+    "./dist/style.css": "./dist/assets/entry.3cce5fd4.css"
   }
 }
