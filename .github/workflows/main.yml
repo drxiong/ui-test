@@ -108,7 +108,7 @@ jobs:
       - name: Display workspace path
         run: echo "Workspace path is ${{ github.workspace }}"
       - name: Run Lint
-        run: cd packages/ui-test && pnpm run lint
+        run: cd /home/runner/work/ui-test/ui-test && pnpm run lint
   UnitTest:
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
@@ -125,7 +125,7 @@ jobs:
       - name: Install modules
         run: pnpm install
       - name: Run Test
-        run: cd packages/ui-test && pnpm run test:run
+        run: cd /home/runner/work/ui-test/ui-test && pnpm run test:run
   PreBuild:
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
@@ -138,4 +138,4 @@ jobs:
       - name: Install modules
         run: pnpm install
       - name: Run Lint
-        run: cd packages/ui-test && pnpm run build
+        run: cd /home/runner/work/ui-test/ui-test && pnpm run build
