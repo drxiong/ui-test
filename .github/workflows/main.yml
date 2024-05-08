@@ -105,8 +105,8 @@ jobs:
           node-version: '18'
       - name: Install modules
         run: pnpm install
-      - name: List contents of the directory
-        run: ls -l packages
+      - name: Display workspace path
+        run: echo "Workspace path is ${{ github.workspace }}"
       - name: Run Lint
         run: cd packages/ui-test && pnpm run lint
   UnitTest:
