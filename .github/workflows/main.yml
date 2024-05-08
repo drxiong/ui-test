@@ -105,6 +105,8 @@ jobs:
           node-version: '18'
       - name: Install modules
         run: pnpm install
+      - name: List contents of the directory
+        run: ls -l packages
       - name: Run Lint
         run: cd packages/ui-test && pnpm run lint
   UnitTest:
@@ -122,8 +124,6 @@ jobs:
       #       node-version: '18'
       - name: Install modules
         run: pnpm install
-       - name: List contents of the directory
-        run: ls -l packages
       - name: Run Test
         run: cd packages/ui-test && pnpm run test:run
   PreBuild:
