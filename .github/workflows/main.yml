@@ -1,3 +1,43 @@
+# # name: CI
+# # on:
+# #   push:
+# #     branches: [main]
+# #   pull_request:
+# #     branches: [main]
+# # jobs:
+# #   Lint:
+# #     # The type of runner that the job will run on
+# #     runs-on: ubuntu-latest
+# #     # Steps represent a sequence of tasks that will be executed as part of the job
+# #     steps:
+# #     - uses: actions/checkout@v2
+# #     - uses: pnpm/action-setup@v2.1.0
+# #       with:
+# #         version: 7.2.1
+# #     - name: Setup Node.js
+# #       uses: actions/setup-node@v2
+# #       with:
+# #         node-version: '18'
+# #     - name: esLint
+# #       run:  pnpm lint:lint-staged
+# #   UnitTest:
+# #    # The type of runner that the job will run on
+# #     runs-on: ubuntu-latest
+# #     # Steps represent a sequence of tasks that will be executed as part of the job
+# #     steps:
+# #     - uses: actions/checkout@v2
+# #     - uses: pnpm/action-setup@v2.1.0
+# #       with:
+# #         version: 7.2.1
+# #    - name: Setup Node.js
+# #       uses: actions/setup-node@v2
+# #       with:
+# #         node-version: '18'
+# #     - name: Install modules
+# #       run: pnpm install
+# #     - name: Run Test
+# #       run: pnpm vitest --watch=false
+
 # name: CI
 # on:
 #   push:
@@ -6,71 +46,86 @@
 #     branches: [main]
 # jobs:
 #   Lint:
-#     # The type of runner that the job will run on
 #     runs-on: ubuntu-latest
-#     # Steps represent a sequence of tasks that will be executed as part of the job
 #     steps:
-#     - uses: actions/checkout@v2
-#     - uses: pnpm/action-setup@v2.1.0
-#       with:
-#         version: 7.2.1
-#     - name: Setup Node.js
-#       uses: actions/setup-node@v2
-#       with:
-#         node-version: '18'
-#     - name: esLint
-#       run:  pnpm lint:lint-staged
+#       - uses: actions/checkout@v4
+#       - uses: pnpm/action-setup@v2.1.0
+#         with:
+#           version: 7.2.1
+#       - name: Setup Node.js
+#         uses: actions/setup-node@v4
+#         with:
+#           node-version: '18'
+#       - name: esLint
+#         run: pnpm lint:lint-staged
 #   UnitTest:
-#    # The type of runner that the job will run on
 #     runs-on: ubuntu-latest
-#     # Steps represent a sequence of tasks that will be executed as part of the job
 #     steps:
-#     - uses: actions/checkout@v2
-#     - uses: pnpm/action-setup@v2.1.0
-#       with:
-#         version: 7.2.1
-#    - name: Setup Node.js
-#       uses: actions/setup-node@v2
-#       with:
-#         node-version: '18'
-#     - name: Install modules
-#       run: pnpm install
-#     - name: Run Test
-#       run: pnpm vitest --watch=false
+#       - uses: actions/checkout@v4
+#       - uses: pnpm/action-setup@v2.1.0
+#         with:
+#           version: 7.2.1
+#       - name: Setup Node.js
+#         uses: actions/setup-node@v2
+#         with:
+#           node-version: '18'
+#       - name: Install modules
+#         run: pnpm install
+#       - name: Run Test
+#         run: pnpm vitest --watch=false
+
+# .github/workflows/main.yml
+# This is a basic workflow to help you get started with Actions
 
 name: CI
+
+# Controls when the action will run. Triggers the workflow on push or pull request
+# events but only for the master branch
 on:
   push:
     branches: [main]
   pull_request:
     branches: [main]
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
+  # This workflow contains a single job called "build"
   Lint:
+    # The type of runner that the job will run on
     runs-on: ubuntu-latest
+    # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
       - uses: pnpm/action-setup@v2.1.0
         with:
           version: 7.2.1
-      - name: Setup Node.js
-        uses: actions/setup-node@v2
-        with:
-          node-version: '18'
-      - name: esLint
-        run: pnpm lint:lint-staged
+      - name: Install modules
+        run: pnpm install
+      - name: Run Lint
+        run: cd packages/ui-test && pnpm run lint
   UnitTest:
+    # The type of runner that the job will run on
     runs-on: ubuntu-latest
+    # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
       - uses: pnpm/action-setup@v2.1.0
         with:
           version: 7.2.1
-      - name: Setup Node.js
-        uses: actions/setup-node@v2
-        with:
-          node-version: '18'
       - name: Install modules
         run: pnpm install
       - name: Run Test
-        run: pnpm vitest --watch=false
-
+        run: cd packages/ui-test && pnpm run test:run
+  PreBuild:
+    # The type of runner that the job will run on
+    runs-on: ubuntu-latest
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v2.1.0
+        with:
+          version: 7.2.1
+      - name: Install modules
+        run: pnpm install
+      - name: Run Lint
+        run: cd packages/ui-test && pnpm run build
