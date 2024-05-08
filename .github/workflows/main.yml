@@ -123,7 +123,7 @@ jobs:
       - name: Install modules
         run: pnpm install
        - name: List contents of the directory
-        run: cd packages && ls -l
+        run: ls -l packages
       - name: Run Test
         run: cd packages/ui-test && pnpm run test:run
   PreBuild:
