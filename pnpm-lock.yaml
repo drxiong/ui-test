@@ -27,8 +27,8 @@ importers:
         specifier: ^0.0.5
         version: 0.0.5(eslint-config-prettier@9.1.0(eslint@7.32.0))
       xy-ui-vite:
-        specifier: ^1.0.2
-        version: 1.0.2
+        specifier: ^1.0.3
+        version: 1.0.3
     devDependencies:
       '@iconify-json/ic':
         specifier: 1.1.4
@@ -3222,8 +3222,8 @@ packages:
   xmlchars@2.2.0:
     resolution: {integrity: sha512-JZnDKK8B0RCDw84FNdDAIpZK+JuJw+s7Lz8nksI7SIuU3UXJJslUthsi+uWBUYOwPFwW7W7PRLRfUKpxjtjFCw==}
 
-  xy-ui-vite@1.0.2:
-    resolution: {integrity: sha512-RNRLBODMfFo8NuZ8lliG8m2ja5czL/SARXzs17q3pSeMDW/c85l2sgouj79C0lSqw8PS81YwWlehS90M+wTf3w==}
+  xy-ui-vite@1.0.3:
+    resolution: {integrity: sha512-lnhk0BCLaQEkkA2qH9UjxE5PTNZvH3Y3cpyZlXfWD40tlHlQGyHx6aO14ukFYXJFrIcHxAySN+b1001bNcfiXg==}
 
   y18n@5.0.8:
     resolution: {integrity: sha512-0pfFzegeDWJHJIAmTLRP2DwHjdF5s7jo9tuztdQxAhINCdvS+3nGINqPd00AphqJR/0LhANUS6/+7SCb98YOfA==}
@@ -6773,7 +6773,7 @@ snapshots:
 
   xmlchars@2.2.0: {}
 
-  xy-ui-vite@1.0.2:
+  xy-ui-vite@1.0.3:
     dependencies:
       '@commitlint/cli': 17.0.2
       '@commitlint/config-conventional': 17.0.2
