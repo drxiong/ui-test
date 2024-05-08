@@ -13,8 +13,11 @@ jobs:
     - uses: actions/checkout@v2
     - uses: pnpm/action-setup@v2.1.0
       with:
-        node-version: '18.3.0'
         version: 7.2.1
+    - name: Setup Node.js
+      uses: actions/setup-node@v2
+      with:
+        node-version: '18'
     - name: esLint
       run:  pnpm lint:lint-staged
   UnitTest:
@@ -25,8 +28,11 @@ jobs:
     - uses: actions/checkout@v2
     - uses: pnpm/action-setup@v2.1.0
       with:
-        node-version: '18.3.0'
         version: 7.2.1
+   - name: Setup Node.js
+      uses: actions/setup-node@v2
+      with:
+        node-version: '18'
     - name: Install modules
       run: pnpm install
     - name: Run Test
