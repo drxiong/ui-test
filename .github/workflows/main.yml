@@ -1,3 +1,43 @@
+# name: CI
+# on:
+#   push:
+#     branches: [main]
+#   pull_request:
+#     branches: [main]
+# jobs:
+#   Lint:
+#     # The type of runner that the job will run on
+#     runs-on: ubuntu-latest
+#     # Steps represent a sequence of tasks that will be executed as part of the job
+#     steps:
+#     - uses: actions/checkout@v2
+#     - uses: pnpm/action-setup@v2.1.0
+#       with:
+#         version: 7.2.1
+#     - name: Setup Node.js
+#       uses: actions/setup-node@v2
+#       with:
+#         node-version: '18'
+#     - name: esLint
+#       run:  pnpm lint:lint-staged
+#   UnitTest:
+#    # The type of runner that the job will run on
+#     runs-on: ubuntu-latest
+#     # Steps represent a sequence of tasks that will be executed as part of the job
+#     steps:
+#     - uses: actions/checkout@v2
+#     - uses: pnpm/action-setup@v2.1.0
+#       with:
+#         version: 7.2.1
+#    - name: Setup Node.js
+#       uses: actions/setup-node@v2
+#       with:
+#         node-version: '18'
+#     - name: Install modules
+#       run: pnpm install
+#     - name: Run Test
+#       run: pnpm vitest --watch=false
+
 name: CI
 on:
   push:
@@ -6,34 +46,31 @@ on:
     branches: [main]
 jobs:
   Lint:
-    # The type of runner that the job will run on
     runs-on: ubuntu-latest
-    # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-    - uses: actions/checkout@v2
-    - uses: pnpm/action-setup@v2.1.0
-      with:
-        version: 7.2.1
-    - name: Setup Node.js
-      uses: actions/setup-node@v2
-      with:
-        node-version: '18'
-    - name: esLint
-      run:  pnpm lint:lint-staged
+      - uses: actions/checkout@v2
+      - uses: pnpm/action-setup@v2.1.0
+        with:
+          version: 7.2.1
+      - name: Setup Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '14'
+      - name: esLint
+        run: pnpm lint:lint-staged
   UnitTest:
-   # The type of runner that the job will run on
     runs-on: ubuntu-latest
-    # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-    - uses: actions/checkout@v2
-    - uses: pnpm/action-setup@v2.1.0
-      with:
-        version: 7.2.1
-   - name: Setup Node.js
-      uses: actions/setup-node@v2
-      with:
-        node-version: '18'
-    - name: Install modules
-      run: pnpm install
-    - name: Run Test
-      run: pnpm vitest --watch=false
+      - uses: actions/checkout@v2
+      - uses: pnpm/action-setup@v2.1.0
+        with:
+          version: 7.2.1
+      - name: Setup Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '14'
+      - name: Install modules
+        run: pnpm install
+      - name: Run Test
+        run: pnpm vitest --watch=false
+
