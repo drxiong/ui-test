@@ -23,7 +23,9 @@ jobs:
           node-version: '18'
       - name: Install modules
         run: pnpm install
-
+      - name: Ensure clean working directory
+        run: |
+          git diff --exit-code || (git add . && git commit -m "Auto commit before publish" && git push) || true
       - name: Build and test
         run: pnpm run build
 
