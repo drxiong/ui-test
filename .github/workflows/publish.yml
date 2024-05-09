@@ -8,9 +8,9 @@ jobs:
   publish:
     runs-on: ubuntu-latest
 
-    name: "publish npm"
+    # name: "publish npm"
 
-    environment: npm
+    # environment: npm
 
     steps:
       - uses: actions/checkout@v4
