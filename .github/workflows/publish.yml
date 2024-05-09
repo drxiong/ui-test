@@ -32,7 +32,7 @@ jobs:
       - name: Publish package
         run: pnpm publish --access public --no-git-checks
         env:
-          NODE_AUTH_TOKEN: ${{secrets.ui-test-token}}
+          NODE_AUTH_TOKEN: ${{secrets.UI_TEST_NPM_TOKEN}}
 
 
       # - uses: actions/checkout@master
