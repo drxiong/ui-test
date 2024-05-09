@@ -49,7 +49,7 @@ jobs:
         run: pnpm run build
       # --no-git-checks 是不检查git工作目录状态，可能会造成还有代码没有提交但是发包了，需要慎用，但是目前不加这个一直报错说工作目录不干净，所以待解决
       - name: Publish package
-        run: npm publish --access public --no-git-checks
+        run: npm set regostry https://registry.npmjs.org/ && npm publish --access public --no-git-checks
         env:
           NODE_AUTH_TOKEN: ${{secrets.UI_TEST_NPM_TOKEN}}
 
