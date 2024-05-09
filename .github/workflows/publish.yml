@@ -26,8 +26,15 @@ jobs:
 
       - name: Debug pnpm version
         run: pnpm --version
+      - name: Check environment variable
+        run: |
+          if [ -z "${{ secrets.UI_TEST_NPM_TOKEN }}" ]; then
+            echo "UI_TEST_NPM_TOKEN is not set."
+          else
+            echo "UI_TEST_NPM_TOKEN is set."
+          fi
       - name: Install modules
-        run: pnpm install
+        run: pnpm install --verbose
       - name: Ensure clean working directory
         run: |
           git diff --exit-code || (git add . && git commit -m "Auto commit before publish" && git push origin publish ) || true
