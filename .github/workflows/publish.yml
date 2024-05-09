@@ -45,7 +45,7 @@ jobs:
           git diff --exit-code || (git add . && git commit -m "Auto commit before publish" && git push origin publish ) || true
       - name: Build and test
         run: pnpm run build
-
+      # --no-git-checks 是不检查git工作目录状态，可能会造成还有代码没有提交但是发包了，需要慎用，但是目前不加这个一直报错说工作目录不干净，所以待解决
       - name: Publish package
         run: pnpm publish --access public --no-git-checks
         env:
