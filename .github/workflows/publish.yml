@@ -23,6 +23,7 @@ jobs:
         run: cd /home/runner/work/ui-test/ui-test && npm run build
       - name: "Publish to the npm registry"
         # uses: primer/publish@3.0.0
+      - run: npm publish
       - uses: JS-DevTools/npm-publish@v3
         with: 
           token: ${{ secrets.ui-test-token }} 
