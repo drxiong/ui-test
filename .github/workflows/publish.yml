@@ -13,22 +13,22 @@ jobs:
     environment: npm
 
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
-
-      - name: Set up Node.js
-        uses: actions/setup-node@v2
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v2.1.0
         with:
-          node-version: '18.17.0'
-
-      - name: Install dependencies
-        run: npm install
+          version: 7.2.1
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+      - name: Install modules
+        run: pnpm install
 
       - name: Build and test
-        run: npm run build
+        run: pnpm run build
 
       - name: Publish package
-        run: npm publish --access public
+        run: pnpm publish --access public
         env:
           NODE_AUTH_TOKEN: ${{secrets.NPM_AUTH_TOKEN}}
 
