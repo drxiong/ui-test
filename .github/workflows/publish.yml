@@ -21,6 +21,11 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: '18'
+      - name: Debug .npmrc
+        run: cat .npmrc
+
+      - name: Debug pnpm version
+        run: pnpm --version
       - name: Install modules
         run: pnpm install
       - name: Ensure clean working directory
