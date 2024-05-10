@@ -9,6 +9,7 @@ selenium-debug.log
 .prettierrc.json
 /storybook-static
 /bossfrontend
+/docs/.vitepress/dist
 
 # test
 __image_snapshots__

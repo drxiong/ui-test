@@ -9,6 +9,7 @@
 
 ```vue
 <template>
+ <p>这是一个自动变更测试</p>
  <div style="margin-bottom:20px;">
   <XButton color="blue">主要按钮</XButton>
   <XButton color="green">绿色按钮</XButton>
