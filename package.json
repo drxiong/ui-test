@@ -4,6 +4,7 @@
   "description": "",
   "main": "./dist/smarty-ui.umd.js",
   "module": "./dist/smarty-ui.esm.js",
+  "homepage": "https://ui-test-orpin.vercel.app/",
   "scripts": {
     "test": "vitest",
     "dev": "vite",
