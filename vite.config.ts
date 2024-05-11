@@ -23,6 +23,10 @@ export default defineConfig({
       web: [/.[tj]sx$/],
     },
   },
+  coverage: {
+    provider: "c8",
+    reporter: ["text", "json", "html"],
+  },
   build: {
     rollupOptions,
     minify: false,
